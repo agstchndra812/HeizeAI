@@ -9,7 +9,7 @@
 - 🤖 Menggunakan model `gpt-4o-mini` (bisa diganti model lain)
 - 🔐 API Key aman via Cloudflare Worker (tidak disimpan di frontend)
 - 📱 Responsive & mobile friendly
-- 🎨 UI simpel & mudah kamu modifikasi
+- 🎨 UI simpel & mudah dimodifikasi
 - 🆓 Gratis digunakan
 - ⚡ Cepat & ringan
 - 🚫 Tanpa login, langsung pakai
@@ -24,7 +24,3 @@
 | Backend (Proxy)  | Cloudflare Worker |
 | AI Engine        | OpenAI Chat Completions API |
 | Hosting          | GitHub Pages |
-
----
-
-## 📁 Struktur Project
