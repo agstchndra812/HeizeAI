@@ -1,22 +1,30 @@
 # 📌 HeizeAI – Web Chat AI dengan Cloudflare Worker Proxy
 
-HeizeAI adalah aplikasi web Chat AI mirip ChatGPT yang menggunakan OpenAI API melalui Cloudflare Worker sebagai proxy, sehingga dapat di-host di GitHub Pages tanpa backend server.
+**HeizeAI** adalah aplikasi web Chat AI berbasis **OpenAI API** yang berjalan melalui **Cloudflare Worker sebagai proxy**, sehingga aman digunakan tanpa perlu expose API Key. Cocok buat kamu yang ingin punya AI chat seperti ChatGPT, gratis, dan tanpa login.
 
 ---
 
-## ✨ Fitur
-- Chat interaktif seperti ChatGPT
-- Menggunakan model `gpt-4o-mini` (bisa diganti)
-- API Key aman melalui Cloudflare Worker
-- Responsive & mobile friendly
-- UI mudah di-custom
+## ✨ Fitur Utama
+- 💬 Chat interaktif seperti ChatGPT
+- 🤖 Menggunakan model `gpt-4o-mini` (bisa diganti model lain)
+- 🔐 API Key aman via Cloudflare Worker (tidak disimpan di frontend)
+- 📱 Responsive & mobile friendly
+- 🎨 UI simpel & mudah kamu modifikasi
+- 🆓 Gratis digunakan
+- ⚡ Cepat & ringan
+- 🚫 Tanpa login, langsung pakai
+- 🗑 Chat sementara (tidak menyimpan riwayat percakapan)
 
 ---
 
-## 🛠 Teknologi
-| Layer | Teknologi |
-|-------|-----------|
-| Frontend | HTML, CSS, JavaScript |
-| Backend Proxy | Cloudflare Worker |
-| AI Engine | OpenAI Chat Completions API |
-| Hosting | GitHub Pages |
+## 🛠 Teknologi yang Dipakai
+| Layer            | Teknologi |
+|------------------|-----------|
+| Frontend         | HTML, CSS, JavaScript |
+| Backend (Proxy)  | Cloudflare Worker |
+| AI Engine        | OpenAI Chat Completions API |
+| Hosting          | GitHub Pages |
+
+---
+
+## 📁 Struktur Project
