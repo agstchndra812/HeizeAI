@@ -1,3 +1,5 @@
+# On progress, lapor kalo ada bug wak
+
 # 📌 HeizeAI – Web Chat AI dengan Cloudflare Worker Proxy
 
 **HeizeAI** adalah aplikasi web Chat AI berbasis **OpenAI API** yang berjalan melalui **Cloudflare Worker sebagai proxy**, sehingga aman digunakan tanpa perlu expose API Key. Cocok buat kamu yang ingin punya AI chat seperti ChatGPT, gratis, dan tanpa login.
