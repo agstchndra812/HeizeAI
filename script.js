@@ -59,7 +59,7 @@ async function sendMessage() {
       data?.response?.choices?.[0]?.message?.content ||
       data?.result?.choices?.[0]?.message?.content ||
       data?.message ||
-      "Terjadi kesalahan membaca response dari server.";
+      "AI lagi sibuk, mohon ditunggu, maklum gratisan wok.";
 
     addMessage("ai", aiReply);
     conversationHistory.push({ role: "assistant", content: aiReply });
