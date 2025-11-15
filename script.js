@@ -1,11 +1,16 @@
-// GANTI URL INI DENGAN URL WORKER CLOUDFLARE KAMU
-const workerUrl = "https://ai-chat-proxy.mrchandra310806.workers.dev/"; // <= WAJIB DIGANTI
+const workerUrl = "https://ai-chat-proxy.mrchandra310806.workers.dev/"; // Ganti sesuai workermu
 
 const chatBox = document.getElementById("chat-box");
 const userInput = document.getElementById("user-input");
 const sendBtn = document.getElementById("send-btn");
 const typing = document.getElementById("typing");
 
+// Menyimpan seluruh chat selama sesi browser berjalan
+let conversationHistory = [
+  { role: "system", content: "Kamu adalah HeizeAI, asisten AI yang ramah dan membantu." }
+];
+
+// Event click & enter
 sendBtn.addEventListener("click", sendMessage);
 userInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") sendMessage();
@@ -16,6 +21,12 @@ function addMessage(sender, text) {
   div.classList.add("message", sender);
   div.textContent = text;
   chatBox.appendChild(div);
+
+  // Auto scroll ke bawah setiap ada pesan baru
+  scrollChatToBottom();
+}
+
+function scrollChatToBottom() {
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
@@ -23,9 +34,14 @@ async function sendMessage() {
   const text = userInput.value.trim();
   if (!text) return;
 
+  // Tambahkan pesan user ke chat & history
   addMessage("user", text);
+  conversationHistory.push({ role: "user", content: text });
   userInput.value = "";
+
+  // Tampilkan animasi typing
   typing.classList.remove("hidden");
+  scrollChatToBottom(); // scroll saat typing muncul
 
   try {
     const response = await fetch(workerUrl, {
@@ -33,10 +49,7 @@ async function sendMessage() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         model: "gpt-4o-mini",
-        messages: [
-          { role: "system", content: "Kamu adalah HeizeAI, asisten AI yang ramah dan membantu." },
-          { role: "user", content: text }
-        ]
+        messages: conversationHistory
       }),
     });
 
@@ -50,7 +63,9 @@ async function sendMessage() {
       data?.message ||
       "Terjadi kesalahan membaca response dari server.";
 
+    // Tambahkan pesan AI ke chat & history
     addMessage("ai", aiReply);
+    conversationHistory.push({ role: "assistant", content: aiReply });
 
   } catch (error) {
     typing.classList.add("hidden");
