@@ -13,7 +13,6 @@ body {
   align-items: center;
 }
 
-/* CHAT WRAPPER RESPONSIVE */
 .chat-container {
   width: 100%;
   height: 100vh;
@@ -23,7 +22,6 @@ body {
   box-shadow: 0 0 12px rgba(0,0,0,0.1);
 }
 
-/* Jika layar besar (desktop), beri batas max agar seperti ChatGPT */
 @media (min-width: 768px) {
   .chat-container {
     width: 800px;
@@ -79,7 +77,6 @@ body {
   font-style: italic;
 }
 
-/* BUBBLE ANIMATION */
 .typing-bubble {
   display: flex;
   gap: 4px;
