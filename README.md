@@ -20,7 +20,3 @@ HeizeAI adalah aplikasi web Chat AI mirip ChatGPT yang menggunakan OpenAI API me
 | Backend Proxy | Cloudflare Worker |
 | AI Engine | OpenAI Chat Completions API |
 | Hosting | GitHub Pages |
-
----
-
-## 📁 Struktur Folder
