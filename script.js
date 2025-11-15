@@ -5,7 +5,7 @@ const userInput = document.getElementById("user-input");
 const sendBtn = document.getElementById("send-btn");
 const typing = document.getElementById("typing");
 
-// Menyimpan seluruh chat selama sesi browser berjalan
+// Chat hanya di memory, hilang saat refresh
 let conversationHistory = [
   { role: "system", content: "Kamu adalah HeizeAI, asisten AI yang ramah dan membantu." }
 ];
@@ -21,8 +21,6 @@ function addMessage(sender, text) {
   div.classList.add("message", sender);
   div.textContent = text;
   chatBox.appendChild(div);
-
-  // Auto scroll ke bawah setiap ada pesan baru
   scrollChatToBottom();
 }
 
@@ -34,14 +32,14 @@ async function sendMessage() {
   const text = userInput.value.trim();
   if (!text) return;
 
-  // Tambahkan pesan user ke chat & history
+  // Tambahkan pesan user
   addMessage("user", text);
   conversationHistory.push({ role: "user", content: text });
   userInput.value = "";
 
   // Tampilkan animasi typing
   typing.classList.remove("hidden");
-  scrollChatToBottom(); // scroll saat typing muncul
+  scrollChatToBottom();
 
   try {
     const response = await fetch(workerUrl, {
@@ -63,7 +61,6 @@ async function sendMessage() {
       data?.message ||
       "Terjadi kesalahan membaca response dari server.";
 
-    // Tambahkan pesan AI ke chat & history
     addMessage("ai", aiReply);
     conversationHistory.push({ role: "assistant", content: aiReply });
 
